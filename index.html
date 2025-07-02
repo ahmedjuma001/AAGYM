@@ -6,105 +6,116 @@
   <title>1-Month Gym & Meal Plan</title>
   <style>
     :root {
-      --bg: #f2f2f2;
-      --text: #333;
-      --header: #222;
-      --table-bg: #fff;
-      --highlight: #fff3e0;
+      --bg-color: #f2f2f2;
+      --text-color: #333;
+      --section-bg: #fff;
+      --header-bg: #222;
+      --highlight-bg: #fff3e0;
       --highlight-border: #ff9800;
     }
-    body.dark-mode {
-      --bg: #121212;
-      --text: #f2f2f2;
-      --header: #1f1f1f;
-      --table-bg: #1e1e1e;
-      --highlight: #2e2e2e;
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --section-bg: #1e1e1e;
+      --header-bg: #000;
+      --highlight-bg: #2c2c2c;
       --highlight-border: #ffa726;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
+
     header {
-      background-color: var(--header);
+      background-color: var(--header-bg);
       color: #fff;
       padding: 20px;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
-    h1, h2 {
-      color: var(--text);
+
+    #toggle-mode {
+      margin-top: 10px;
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
     }
+
     section {
-      background: var(--table-bg);
+      background: var(--section-bg);
       margin: 20px auto;
       padding: 20px;
       border-radius: 10px;
       max-width: 900px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
+
+    h1, h2 {
+      color: var(--text-color);
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
     }
+
     th, td {
       border: 1px solid #ccc;
       padding: 10px;
       text-align: left;
       vertical-align: top;
     }
+
     th {
       background-color: #333;
       color: #fff;
     }
-    ul {
-      line-height: 1.6;
-    }
+
     .highlight {
       border: 3px solid var(--highlight-border);
-      background-color: var(--highlight);
+      background-color: var(--highlight-bg);
       box-shadow: 0 0 12px rgba(255, 152, 0, 0.4);
     }
+
     .highlight h2 {
-      color: #e65100;
+      color: var(--highlight-border);
     }
-    .toggle-btn {
-      background: #ff9800;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 999;
-    }
+
     @media (max-width: 600px) {
+      body {
+        font-size: 15px;
+      }
+      section {
+        padding: 15px;
+        margin: 10px;
+      }
       table, th, td {
         font-size: 14px;
+        padding: 8px;
       }
-      .toggle-btn {
-        padding: 6px 12px;
-        font-size: 14px;
+      #toggle-mode {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <button class="toggle-btn" onclick="document.body.classList.toggle('dark-mode')">Toggle Dark Mode</button>
   <header>
     <h1>1-Month Gym and Meal Plan</h1>
     <p>Beginner-Friendly | Muscle Gain + Fat Loss</p>
+    <button id="toggle-mode">Toggle Dark Mode</button>
   </header>
 
-  <section class="highlight" id="today">
+  <section class="highlight">
     <h2 id="today-date">Today's Plan</h2>
     <p><strong>Weekly Progression:</strong> Week 1 - Learn form, use light/moderate weights</p>
     <table>
@@ -115,94 +126,102 @@
     </table>
   </section>
 
-  <section id="workout">
-    <h2>Workout Schedule (Repeat Weekly)</h2>
+  <section>
+    <h2>Weekly Workout Schedule</h2>
     <table>
       <tr><th>Day</th><th>AM (Fasted Cardio)</th><th>PM (Strength)</th></tr>
-      <tr><td>Monday</td><td>30-min Walk + Plank Circuit</td><td>Upper Body A (Chest, Back, Biceps)</td></tr>
-      <tr><td>Tuesday</td><td>20-min Bike + Abs</td><td>Lower Body (Quads, Hamstrings, Glutes)</td></tr>
-      <tr><td>Wednesday</td><td>Incline Walk + Stretch</td><td>Push Focus (Chest, Shoulders, Triceps)</td></tr>
-      <tr><td>Thursday</td><td>25-min Cycle + Abs</td><td>Rest (Evening)</td></tr>
+      <tr><td>Monday</td><td>30-min Walk + Core</td><td>Chest, Back, Biceps</td></tr>
+      <tr><td>Tuesday</td><td>Bike + Abs</td><td>Legs, Glutes, Calves</td></tr>
+      <tr><td>Wednesday</td><td>Walk + Stretch</td><td>Chest, Shoulders, Triceps</td></tr>
+      <tr><td>Thursday</td><td>Cycle + Core</td><td>Rest</td></tr>
       <tr><td>Friday</td><td>Rest</td><td>Rest</td></tr>
-      <tr><td>Saturday</td><td>Walk + Core Circuit</td><td>Full Body Compound (Squat, Pull, Push)</td></tr>
-      <tr><td>Sunday</td><td>Stretching or Yoga</td><td>Light Cardio or Active Recovery</td></tr>
+      <tr><td>Saturday</td><td>Walk + Core</td><td>Full Body Compound</td></tr>
+      <tr><td>Sunday</td><td>Yoga/Stretch</td><td>Cardio or Recovery</td></tr>
     </table>
   </section>
 
-  <section id="meals">
-    <h2>Daily Meal Plan</h2>
+  <section>
+    <h2>Sample Daily Meal Plan</h2>
     <table>
-      <tr><th>Meal</th><th>Food Items & Timing</th></tr>
-      <tr><td>Breakfast</td><td>After morning cardio: 3 eggs, 1 slice bread, cucumber, banana</td></tr>
-      <tr><td>Snack 1</td><td>Mid-morning: Greek yogurt or protein shake + almonds or fruit</td></tr>
-      <tr><td>Lunch</td><td>Pre-workout meal: Grilled chicken, rice or sweet potato, salad, olive oil</td></tr>
-      <tr><td>Snack 2</td><td>After strength workout: Boiled egg or cheese + fruit</td></tr>
-      <tr><td>Dinner</td><td>Final meal (if hungry): Grilled fish or eggs + vegetables + bread</td></tr>
-      <tr><td>Optional Late Snack</td><td>Before bed: Herbal tea + boiled egg</td></tr>
+      <tr><th>Meal</th><th>Description</th></tr>
+      <tr><td>Breakfast</td><td>3 eggs, 1 slice bread, cucumber, banana (after AM cardio)</td></tr>
+      <tr><td>Snack</td><td>Greek yogurt or protein shake + almonds (midday)</td></tr>
+      <tr><td>Lunch</td><td>Grilled chicken, rice or sweet potato, salad, olive oil (pre-workout)</td></tr>
+      <tr><td>Post-workout</td><td>Boiled egg or cheese + fruit (after PM workout)</td></tr>
+      <tr><td>Dinner</td><td>Grilled fish or eggs, vegetables, 1 slice bread</td></tr>
+      <tr><td>Optional Snack</td><td>Herbal tea + boiled egg before sleep</td></tr>
     </table>
   </section>
 
-  <section id="progression">
-    <h2>Weekly Progression</h2>
+  <section>
+    <h2>Weekly Progression Tips</h2>
     <ul>
-      <li><strong>Week 1:</strong> Learn form, use light/moderate weights</li>
-      <li><strong>Week 2:</strong> Slightly increase weights (2.5–5 kg)</li>
-      <li><strong>Week 3:</strong> Increase reps or weights</li>
-      <li><strong>Week 4:</strong> Increase weights or reduce rest time to 60 sec</li>
+      <li><strong>Week 1:</strong> Light weights, learn proper form</li>
+      <li><strong>Week 2:</strong> Increase weights slightly</li>
+      <li><strong>Week 3:</strong> Add more sets or reduce rest</li>
+      <li><strong>Week 4:</strong> Maximize weights and performance</li>
     </ul>
   </section>
 
-  <section id="weight">
-    <h2>Weekly Weight Log</h2>
-    <table>
-      <tr><th>Week</th><th>Weight (kg)</th><th>Notes</th></tr>
-      <tr><td>Week 1</td><td contenteditable="true">79</td><td contenteditable="true">Starting point</td></tr>
-      <tr><td>Week 2</td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
-      <tr><td>Week 3</td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
-      <tr><td>Week 4</td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
-    </table>
-  </section>
-
-  <section id="tips">
-    <h2>Extra Tips</h2>
+  <section>
+    <h2>General Fitness Tips</h2>
     <ul>
-      <li>Drink 2.5 to 3 liters of water daily</li>
-      <li>Sleep 7 to 9 hours per night</li>
-      <li>Optional: whey protein after gym</li>
-      <li>Cardio 1–2 times/week outside morning sessions</li>
-      <li>Focus on consistency, not perfection</li>
+      <li>Drink 2.5–3 liters of water daily</li>
+      <li>Get 7–9 hours of sleep</li>
+      <li>Use whey protein if needed after workouts</li>
+      <li>Track progress with weekly photos or logs</li>
+      <li>Focus on long-term consistency</li>
     </ul>
   </section>
 
   <script>
     const plans = {
-      0: { // Sunday
-        am: 'Stretching or Yoga',
-        pm: 'Light Cardio or Active Recovery'
+      0: {
+        am: 'Yoga (20 min), Deep Stretching (3x1 min per pose)',
+        pm: 'Light elliptical or swim (20–30 min), foam rolling (10 min)'
       },
       1: {
-        am: '30-min Walk + Plank Circuit',
-        pm: 'Upper Body A (Chest, Back, Biceps)'
+        am: '30-min Walk, Core: Plank (3x45 sec), Leg Raises (3x15)',
+        pm: `Upper Body A:<br>
+        - Chest Press Machine (4x10)<br>
+        - Lat Pulldown (4x10)<br>
+        - Seated Row Machine (4x10)<br>
+        - Dumbbell Bicep Curl (3x12)<br>
+        - Triceps Pushdown (3x12)`
       },
       2: {
-        am: '20-min Bike + Abs',
-        pm: 'Lower Body (Quads, Hamstrings, Glutes)'
+        am: '20-min Bike, Abs: Russian Twists (3x20), Crunches (3x15)',
+        pm: `Lower Body:<br>
+        - Leg Press Machine (4x12)<br>
+        - Romanian Deadlifts (3x10)<br>
+        - Leg Curl Machine (3x15)<br>
+        - Calf Raise (4x15)<br>
+        - Walking Lunges (2x20 steps)`
       },
       3: {
-        am: 'Incline Walk + Stretch',
-        pm: 'Push Focus (Chest, Shoulders, Triceps)'
+        am: 'Incline Walk 25 min, Stretching (Hamstrings, Shoulders)',
+        pm: `Push Focus:<br>
+        - Incline Chest Press (4x10)<br>
+        - Dumbbell Shoulder Press (4x10)<br>
+        - Lateral Raises (3x15)<br>
+        - Overhead Triceps Extension (3x12)`
       },
       4: {
-        am: '25-min Cycle + Abs',
-        pm: 'Rest (Evening)'
+        am: 'Cycle 25 min, Abs: Leg Raises (3x15), Mountain Climbers (3x30 sec)',
+        pm: 'Rest (Stretch or light walk if needed)'
       },
       5: {
         am: 'Rest',
         pm: 'Rest'
       },
       6: {
-        am: 'Walk + Core Circuit',
-        pm: 'Full Body Compound (Squat, Pull, Push)'
+        am: 'Walk 20 min, Core Circuit: Plank (3x1 min), Crunches (3x20)',
+        pm: `Full Body Compound:<br>
+        - Squats (4x10)<br>
+        - Pull-Ups or Assisted Pull-ups (3x8)<br>
+        - Bench Press or Push-Ups (4x10)<br>
+        - Dumbbell Row (3x12)<br>
+        - Face Pulls (3x15)`
       }
     };
 
@@ -222,6 +241,12 @@
       <tr><td>Snack</td><td>—</td><td>${meals.snack}</td></tr>
       <tr><td>Evening</td><td>${plans[day].pm}</td><td>${meals.pm}</td></tr>
     `;
+
+    // Toggle dark mode
+    document.getElementById("toggle-mode").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
   </script>
 </body>
 </html>
+
