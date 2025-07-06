@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>1-Month Gym & Meal Plan</title>
+  <title>AHMED ALSAADI - 1-Month Gym & Meal Plan</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap');
+
     :root {
       --bg-color: #f2f2f2;
       --text-color: #333;
@@ -12,6 +14,7 @@
       --header-bg: #222;
       --highlight-bg: #fff3e0;
       --highlight-border: #ff9800;
+
     }
 
     body.dark {
@@ -33,20 +36,48 @@
     }
 
     header {
-      background-color: var(--header-bg);
+      background: linear-gradient(135deg, #ff9800, #ff5722);
       color: #fff;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
+      box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+    }
+
+    header h1 {
+      font-family: 'Sedgwick Ave', cursive;
+      font-size: 3em;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+-webkit-text-stroke: 0.025px black;
+    }
+
+    header p {
+      font-size: 1.3em;
+      color: #ffe0b2;
+      margin-top: 10px;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800; }
+      to { text-shadow: 0 0 20px #ff5722, 0 0 30px #ff5722; }
     }
 
     #toggle-mode {
-      margin-top: 10px;
+      margin-top: 15px;
+      background: #fff;
+      color: #ff5722;
+      border: 2px solid #ff9800;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #toggle-mode:hover {
       background: #ff9800;
       color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
     }
 
     section {
@@ -55,10 +86,10 @@
       padding: 20px;
       border-radius: 10px;
       max-width: 900px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    h1, h2 {
+    h2 {
       color: var(--text-color);
     }
 
@@ -83,7 +114,7 @@
     .highlight {
       border: 3px solid var(--highlight-border);
       background-color: var(--highlight-bg);
-      box-shadow: 0 0 12px rgba(255, 152, 0, 0.4);
+      box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
     }
 
     .highlight h2 {
@@ -91,8 +122,11 @@
     }
 
     @media (max-width: 600px) {
-      body {
-        font-size: 15px;
+      header h1 {
+        font-size: 2.3em;
+      }
+      header p {
+        font-size: 1.1em;
       }
       section {
         padding: 15px;
@@ -110,8 +144,8 @@
 </head>
 <body>
   <header>
-    <h1>1-Month Gym and Meal Plan</h1>
-    <p>Beginner-Friendly | Muscle Gain + Fat Loss</p>
+    <h1>AHMED ALSAADI | Workout & Meal Plan</h1>
+    <p>| Muscle Gain and Fat Loss Journey |</p>
     <button id="toggle-mode">Toggle Dark Mode</button>
   </header>
 
@@ -136,7 +170,7 @@
       <tr><td>Thursday</td><td>Cycle + Core</td><td>Rest</td></tr>
       <tr><td>Friday</td><td>Rest</td><td>Rest</td></tr>
       <tr><td>Saturday</td><td>Walk + Core</td><td>Full Body Compound</td></tr>
-      <tr><td>Sunday</td><td>Yoga/Stretch</td><td>Cardio or Recovery</td></tr>
+      <tr><td>Sunday</td><td>Bodyweight Circuit (Low Impact)</td><td>Cardio or Recovery</td></tr>
     </table>
   </section>
 
@@ -177,7 +211,11 @@
   <script>
     const plans = {
       0: {
-        am: 'Yoga (20 min), Deep Stretching (3x1 min per pose)',
+        am: `Bodyweight Circuit:<br>
+        - 10 Air Squats<br>
+        - 10 Push-ups (knee or wall push-ups if needed)<br>
+        - 20 Mountain Climbers<br>
+        - 10 Glute Bridges`,
         pm: 'Light elliptical or swim (20–30 min), foam rolling (10 min)'
       },
       1: {
