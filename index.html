@@ -11,10 +11,11 @@
       --bg-color: #f2f2f2;
       --text-color: #333;
       --section-bg: #fff;
-      --header-bg: #222;
+      --header-bg: linear-gradient(135deg, #ff9800, #ff5722);
       --highlight-bg: #fff3e0;
       --highlight-border: #ff9800;
-
+      --glow-color-1: #ff9800;
+      --glow-color-2: #ff5722;
     }
 
     body.dark {
@@ -24,6 +25,8 @@
       --header-bg: #000;
       --highlight-bg: #2c2c2c;
       --highlight-border: #ffa726;
+      --glow-color-1: #ffa500;
+      --glow-color-2: #000000;
     }
 
     body {
@@ -36,20 +39,25 @@
     }
 
     header {
-      background: linear-gradient(135deg, #ff9800, #ff5722);
+      background: var(--header-bg);
       color: #fff;
       padding: 30px;
       text-align: center;
-      box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease;
     }
 
     header h1 {
       font-family: 'Sedgwick Ave', cursive;
       font-size: 3em;
       font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      -webkit-text-stroke: 0.25px black;
       animation: glow 2s ease-in-out infinite alternate;
--webkit-text-stroke: 0.025px black;
+    }
+
+    body.dark header h1 {
+      -webkit-text-stroke: 0.25px #ff5722;
     }
 
     header p {
@@ -59,8 +67,8 @@
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800; }
-      to { text-shadow: 0 0 20px #ff5722, 0 0 30px #ff5722; }
+      from { text-shadow: 0 0 10px var(--glow-color-1), 0 0 20px var(--glow-color-1); }
+      to { text-shadow: 0 0 20px var(--glow-color-2), 0 0 30px var(--glow-color-2); }
     }
 
     #toggle-mode {
@@ -144,8 +152,8 @@
 </head>
 <body>
   <header>
-    <h1>AHMED ALSAADI | Workout & Meal Plan</h1>
-    <p>| Muscle Gain and Fat Loss Journey |</p>
+    <h1>AHMED ALSAADI'S 1-Month Gym & Meal Plan</h1>
+    <p>Muscle Gain and Fat Loss Journey</p>
     <button id="toggle-mode">Toggle Dark Mode</button>
   </header>
 
